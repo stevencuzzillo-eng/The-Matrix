@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#020503" />
+  <meta name="description" content="The Matrix: Libations — an interactive invitation." />
+  <title>The Matrix: Libations</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="matrix-rain" aria-hidden="true"></canvas>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <main id="app">
+    <section id="intro" class="screen active" aria-labelledby="intro-text">
+      <div class="terminal-wrap">
+        <p id="intro-text" class="terminal" aria-live="polite"></p>
+        <button id="enter-button" class="terminal-button hidden" type="button">ENTER</button>
+      </div>
+    </section>
+
+    <section id="choice" class="screen" aria-labelledby="choice-title">
+      <div class="choice-panel">
+        <p class="eyebrow">INCOMING TRANSMISSION</p>
+        <h1 id="choice-title">This is your last chance.</h1>
+        <p>After this, there is no turning back.</p>
+
+        <div class="pill-grid">
+          <button id="red-pill" class="pill-choice red" type="button">
+            <span class="pill" aria-hidden="true"></span>
+            <strong>RED PILL</strong>
+            <small>See how deep the rabbit hole goes.</small>
+          </button>
+
+          <button id="blue-pill" class="pill-choice blue" type="button">
+            <span class="pill" aria-hidden="true"></span>
+            <strong>BLUE PILL</strong>
+            <small>Wake up and believe whatever you want.</small>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="blue-ending" class="screen" aria-labelledby="blue-title">
+      <div class="terminal-wrap blue-ending-copy">
+        <p id="blue-title" class="terminal blue-text">SIMULATION DECLINED.</p>
+        <p>You wake up in your bed and believe whatever you want to believe.</p>
+        <p>Enjoy your day.</p>
+        <button id="reconsider" class="text-link" type="button">Changed your mind?</button>
+      </div>
+    </section>
+
+    <section id="invite" class="screen invite-screen" aria-labelledby="event-title">
+      <nav class="top-nav" aria-label="Invitation sections">
+        <button class="nav-button active" data-panel="details-panel" type="button">SYSTEM INFO</button>
+        <button class="nav-button" data-panel="outfits-panel" type="button">RESIDUAL SELF IMAGE</button>
+        <button class="nav-button" data-panel="rsvp-panel" type="button">CONFIRM PRESENCE</button>
+      </nav>
+
+      <div class="invite-shell">
+        <header class="event-header">
+          <p class="eyebrow">ACCESS GRANTED</p>
+          <h1 id="event-title">THE MATRIX:<br /><span>LIBATIONS</span></h1>
+          <p class="tagline">Choose your pill. Question reality.</p>
+        </header>
+
+        <section id="details-panel" class="content-panel active">
+          <div class="details-grid">
+            <article class="data-card">
+              <span>DATE</span>
+              <strong id="event-date">SATURDAY, INSERT DATE</strong>
+            </article>
+            <article class="data-card">
+              <span>TIME</span>
+              <strong id="event-time">INSERT TIME</strong>
+            </article>
+            <article class="data-card">
+              <span>ACCESS LOCATION</span>
+              <strong id="event-location">INSERT ADDRESS</strong>
+            </article>
+            <article class="data-card">
+              <span>DRESS CODE</span>
+              <strong>BLACK / LEATHER / LATE-90s CYBER</strong>
+            </article>
+          </div>
+
+          <div class="copy-block">
+            <h2>WELCOME TO THE SIMULATION</h2>
+            <p>
+              Black tailoring, leather, vinyl, sharp silhouettes, polished boots,
+              strange hair and sunglasses after dark. Your arrival libation will be chosen for you.
+            </p>
+          </div>
+
+          <div class="countdown" aria-label="Countdown to event">
+            <div><strong id="days">--</strong><span>DAYS</span></div>
+            <div><strong id="hours">--</strong><span>HOURS</span></div>
+            <div><strong id="minutes">--</strong><span>MINUTES</span></div>
+            <div><strong id="seconds">--</strong><span>SECONDS</span></div>
+          </div>
+        </section>
+
+        <section id="outfits-panel" class="content-panel">
+          <div class="section-heading">
+            <p class="eyebrow">DEFINE YOUR</p>
+            <h2>RESIDUAL SELF IMAGE</h2>
+            <p>Dress as the version of yourself that exists inside the Matrix.</p>
+          </div>
+
+          <div class="outfit-gallery">
+            <figure class="outfit-card">
+              <img src="assets/outfits/neo.jpg" alt="Neo-inspired black coat and narrow sunglasses outfit inspiration" />
+              <figcaption><strong>NEO</strong><span>Long lines, matte black, severe tailoring.</span></figcaption>
+            </figure>
+            <figure class="outfit-card">
+              <img src="assets/outfits/trinity.jpg" alt="Trinity-inspired glossy black fitted outfit inspiration" />
+              <figcaption><strong>TRINITY</strong><span>Gloss, fitted silhouettes, slick hair.</span></figcaption>
+            </figure>
+            <figure class="outfit-card">
+              <img src="assets/outfits/morpheus.jpg" alt="Morpheus-inspired leather coat and mirrored glasses outfit inspiration" />
+              <figcaption><strong>MORPHEUS</strong><span>Leather, sharp structure, mirrored lenses.</span></figcaption>
+            </figure>
+            <figure class="outfit-card">
+              <img src="assets/outfits/agents.jpg" alt="Agent-inspired black suit outfit inspiration" />
+              <figcaption><strong>AGENTS</strong><span>Black suit, white shirt, immaculate control.</span></figcaption>
+            </figure>
+            <figure class="outfit-card">
+              <img src="assets/outfits/rebels.jpg" alt="Matrix rebel-inspired late-1990s cyber fashion outfit inspiration" />
+              <figcaption><strong>ANOMALIES</strong><span>Mesh, vinyl, tiny frames, asymmetry.</span></figcaption>
+            </figure>
+          </div>
+
+          <p class="image-note">Replace these five image files with your own outfit references using the same filenames.</p>
+        </section>
+
+        <section id="rsvp-panel" class="content-panel">
+          <div class="section-heading">
+            <p class="eyebrow">STATUS REQUIRED</p>
+            <h2>CONFIRM PRESENCE</h2>
+            <p>Red pill accepted. Complete your final authentication.</p>
+          </div>
+
+          <a id="rsvp-link" class="primary-action" href="https://forms.google.com/INSERT-YOUR-FORM" target="_blank" rel="noopener noreferrer">
+            RSVP NOW
+          </a>
+          <a id="calendar-link" class="secondary-action" href="#" download="matrix-libations.ics">ADD TO CALENDAR</a>
+          <p class="small-print">Replace the RSVP link in <code>config.js</code> with your Google Form, WhatsApp, or email link.</p>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
